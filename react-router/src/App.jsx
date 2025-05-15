@@ -6,11 +6,18 @@ import Products from './pages/Products'
 import {browserRouter, routes,route}from "react-router-dom"
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-      
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' Component={Homepage}></Route>
+        <Route path='/about' Component={About}></Route>
+        <Route path='/product' Component={Product}></Route>
+        <Route path='/contacts' Component={Contacts}></Route>
+      </Routes>
+    </BrowserRouter>
     </>
   )
 }
