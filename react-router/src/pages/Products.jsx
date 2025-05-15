@@ -1,56 +1,58 @@
 import React from 'react'
-import  { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Navbar from '../components/Navbar'
 
 function Products() {
 
-    const[products,setproducts]=useState(null);
+    const [products, setproducts] = useState(null);
 
-    const getProducts=()=>{
+    const getProducts = () => {
         axios.get("https://fakestoreapi.com/products")
-        .then((resp)=>{
-            setproducts(resp.data)
-        })
-        .catch((err)=>{
-            console.error("errore caricamento pagina")
-        })
+            .then((resp) => {
+                setproducts(resp.data)
+            })
+            .catch((err) => {
+                console.error("errore caricamento pagina")
+            })
     };
-    useEffect(()=>{
+    useEffect(() => {
         getProducts()
-    },[]);
- 
+    }, []);
 
-  return (
-    <div className='container'>
-         <Navbar/>
-        <div className="row">
-          <div className="col-12">
-            <h1>Lista Articoli</h1>
-          </div>
-        </div>
-        <div className="row">
-            {
-                products == null ? (
-                    <div> Loading..</div>
-                ):( 
-                    products.map((e)=>{
-                        return(
-                            <div className="col-12 col-md-4">
-                                <ul>
-                                    <li>{e.title}</li>
-                                </ul>
 
-                            </div>
-                        )
-                    })
-                )
-            }
-        </div>
-
-      
-    </div>
-  )
+    return (
+        <div className='container'>
+            <Navbar />
+            <div className="row">
+                <div className="col-12">
+                    <h1>Lista Articoli</h1>
+                </div>
+            </div>
+            <div className="row">
+                {
+                    products == null ? (
+                        <div> Loading..</div>
+                    ) : (
+                        products.map((e) => {
+                            return (
+                                <div className="col-12 col-md-6 col-lg-4" key={e.id}>
+                                    <div className="card h-100">
+                                        <img src={e.image || e.img} className="card-img-top img-fluid" alt={e.title} />
+                                        <div className="card-body">
+                                            <h5 className="card-title">{e.title}</h5>
+                                            <p className="card-text">{e.description}</p>
+                                            <p className="card-text">€ {e.price}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    )
+                }
+            </div>
+       </div>
+    )
 }
 
 export default Products
