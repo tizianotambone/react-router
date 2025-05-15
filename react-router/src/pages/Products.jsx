@@ -1,6 +1,7 @@
 import React from 'react'
 import  { useEffect, useState } from 'react'
 import axios from 'axios'
+import Navbar from '../components/Navbar'
 
 function Products() {
 
@@ -22,6 +23,7 @@ function Products() {
 
   return (
     <div className='container'>
+         <Navbar/>
         <div className="row">
           <div className="col-12">
             <h1>Lista Articoli</h1>
