@@ -1,10 +1,10 @@
-import { useState } from 'react'
 import './App.css'
 import Homepage from './pages/Homepage'
 import About from './pages/About'
 import Products from './pages/Products'
 import {BrowserRouter, Routes,Route}from "react-router-dom"
 import DefaultLayout from './layouts/DefaultLayout'
+import DetailProduct from './pages/detailProducts/DetailProduct'
 
 function App() {
   
@@ -16,7 +16,9 @@ function App() {
         <Route Component={DefaultLayout}>
           <Route path='/' Component={Homepage}></Route>
           <Route path='/about' Component={About}></Route>
-          <Route path='/product' Component={Products}></Route>
+          <Route path='/product' Component={Products}>
+            <Route path=':id' Component={DetailProduct}></Route>
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

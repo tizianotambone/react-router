@@ -15,3 +15,7 @@
 .fw{
     font-weight: 700;
 }
+
+.card{
+    cursor: pointer;
+}
