@@ -18,8 +18,8 @@ function Navbar() {
 
   return (
     <header>
-      <nav>
-        <ul className="list-unstyled d-flex gap-3 m-3">
+      <nav className=' nav'>
+        <ul className="list-unstyled d-flex gap-3 m-3 fw">
           {links.map((link, index) => (
             <li key={index}>
               <NavLink 
