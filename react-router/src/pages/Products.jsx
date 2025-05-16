@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { NavLink } from 'react-router-dom';
 
 function Products() {
 
@@ -35,21 +36,23 @@ function Products() {
                         products.map((e) => {
                             return (
                                 <div className="col-12 col-md-6 col-lg-4 mt-5 img" key={e.id}>
-                                    <div className="card h-80">
-                                        <img src={e.image || e.image} className="card-img-top img-fluid " alt={e.title} />
-                                        <div className="card-body">
-                                            <h5 className="card-title">{e.title}</h5>
-                                            {/* <p className="card-text">{e.description}</p> */}
-                                            <p className="card-text price">€ {e.price}</p>
+                                    <NavLink to={`${e.id}`}>
+                                        <div className="card h-80">
+                                            <img src={e.image || e.image} className="card-img-top img-fluid " alt={e.title} />
+                                            <div className="card-body">
+                                                <h5 className="card-title">{e.title}</h5>
+                                                {/* <p className="card-text">{e.description}</p> */}
+                                                <p className="card-text price">€ {e.price}</p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </NavLink>
                                 </div>
                             )
                         })
                     )
                 }
             </div>
-       </div>
+        </div>
     )
 }
 
