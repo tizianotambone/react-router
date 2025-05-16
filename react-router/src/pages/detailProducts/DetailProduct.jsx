@@ -26,18 +26,24 @@ function DetailProduct() {
     return (
         <>
             {
-                product == null 
-                ? (
-                    <div>Loading...</div>
-                ) 
-                : (
-                    <div className="card">
-                        <img src={product.image || product.image} className="card-img-top img-fluid " alt={product.title} />
-                        <h5 className="card-title">{product.title}</h5>
-                        <p className="card-text">{product.description}</p>
-                        <p className="card-text price">€ {product.price}</p>
-                    </div>
-                )
+                product == null
+                    ? (
+                        <div>Loading...</div>
+                    )
+                    : (
+                        <div className="my-card p-5">
+                            <div className="row">
+                                <div className="col-12 col-md-6 text-center">
+                                    <img src={product.image || product.image} className="card-img-top img-fluid " alt={product.title} />
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <h5 className="card-title">{product.title}</h5>
+                                    <p className="card-text">{product.description}</p>
+                                    <p className="card-text price">€{product.price}</p>
+                                </div>
+                            </div>
+                        </div>
+                    )
             }
         </>
     )

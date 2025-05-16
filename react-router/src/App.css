@@ -6,11 +6,13 @@
     width: 70px;
 }
 .bg{
-    background-color: rgb(227, 227, 221);
+    background-color: lightcyan;
+    border-radius: 10px;
+    border: 1px solid lightgray;
 }
 .nav{
     height: 100px;
-    background-color: rgb(215, 207, 197);
+    background-color: skyblue;
 }
 .fw{
     font-weight: 700;
@@ -18,4 +20,13 @@
 
 .card{
     cursor: pointer;
+}
+
+.my-card{
+    width: 100%;
+    height: 400px;
+}
+
+.my-card img {
+    width: 50%;
 }
